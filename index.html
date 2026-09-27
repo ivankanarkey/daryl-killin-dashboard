@@ -100,7 +100,7 @@ button{font:inherit;color:var(--ink);background:none;border:0;cursor:pointer}
 <div id="drill">
   <div class="dh"><h2 id="dname"></h2><button id="bBack">Back</button></div>
   <div class="areas" id="areas"></div>
-  <div class="foot">Purple action needed. Red blocked. Orange underway. Green decided only. Turquoise completed. Grey no status. Pink lamp Urgent = every blocked item. White lamp Important = every action-needed item. Turquoise COMPLETED = finished tasks, empty until the Abacus ranks something as done. Fact: detail. Judgement: colours, groupings and the Urgent/Important rule. Killin Group dashboard · file killin-dashboard-live.html · working draft.</div>
+  <div class="foot">Purple action needed. Red blocked. Orange underway. Green decided only. Turquoise completed. Grey no status. Pink lamp Urgent = every blocked item. White lamp Important = every action-needed item. Turquoise COMPLETED = finished tasks, empty until something's actually done. Every task below is quoted or paraphrased directly from Daryl's WhatsApp messages, 22–26 Sep 2026 — not from Dropbox. Judgement: colours, groupings and status where he didn't state one (marked grey). Killin Group dashboard · file killin-dashboard-live.html · working draft.</div>
 </div>
 
 <script>
@@ -112,38 +112,27 @@ const KM=DB+'1_1_Killin%20Management';
 const CRUNCH=KM+'/KillinIT%20Dropbox%20Crunch%20Aug%202026';
 const B=[
  {id:'km',n:'KM',full:'Killin Management',sub:'Company 1',cls:'co',k:'dial',files:KM,t:[
-  ['Staffing','a','DAMA variation to FNQ DAMA Team. Four gaps open.'],
-  ['Profile','a','Forestry Australia nomination built. Submission not confirmed.'],
-  ['Funding evidence','a','AFWI support: email evidence only.']]},
+  ['Command Centre','a','"Getting us all to use Claude Command Centre and pull together the AI stack with Ivana." — WhatsApp, 25 Sep 18:56'],
+  ['TreeHouse computer','n','"Working out what kind of TreeHouse computer we need to run the SylvaNaut project & companies overall." — WhatsApp, 25 Sep 18:56'],
+  ['Budget & receipts','n','"Finalising a budget & a better way for me to record receipts." — WhatsApp, 25 Sep 18:56']]},
  {id:'tft',n:'TFT',full:'Tropical Fire Technologies',sub:'Company 2',cls:'co',k:'hbars',files:KM+'/Tropical%20Forest%20Tree',t:[
-  ['Clients','g','Five clients with 2026–27 files: APN Cape York, Batavia BTOAC, Alka Bawar, Gondwana Carbon, KASC.',KM+'/Tropical%20Forest%20Tree/Clients%20Partners%20%26%20Suppliers'],
-  ['Money','r','Xero invoice access unresolved since July.'],
-  ['Crew','n','Three subcontractors plus operations support.']]},
+  ['Invoices','a','"Getting TFT invoices done (v hard right now over here on overseas data with no laptop)." — WhatsApp, 25 Sep 18:56'],
+  ['Sales','n','"Selling more TFT matches & UBCO eMotorbikes to earn more $." — WhatsApp, 25 Sep 18:56'],
+  ['Email','p','"My emails are ridiculous — very urgent solution needed there." Use accounts@killin.com.au for invoices, not his own email. — WhatsApp, 22 Sep 21:44 & 21:46']]},
  {id:'ncc',n:'NCCS',full:'Native Conifer Carbon Sink',sub:'Company 3',cls:'co',k:'bars',files:KM+'/Native%20Conifer%20Carbon%20Sink',t:[
-  ['SylvaNaut','a','Own button on the dashboard.',null,'syl'],
-  ['Contracts','g','Lincoln Agritech subcontract, 15 May 2026.',KM+'/Native%20Conifer%20Carbon%20Sink'],
-  ['Carbon','p','Carbon and reforestation not searched yet.']]},
+  ['SylvaNaut','n','Own button on the dashboard.',null,'syl'],
+  ['Qld Govt funding','n','"Rewriting the paper I drafted with Donna Patane & getting new $$ from Qld State Govt." — WhatsApp, 25 Sep 18:56'],
+  ['Biochar','n','"Getting a biochar project funded." — WhatsApp, 25 Sep 18:56']]},
  {id:'syl',n:'SylvaNaut',full:'SylvaNaut',sub:'Project in flux',cls:'big',k:'flux',t:[
-  ['Partners','r','Lincoln Agritech milestone 1 & 2 not delivered. Datum error parked.'],
-  ['Coordinator','r','Coordinator pack was due 14 Sep 2026.'],
-  ['Milestones','a','Milestone 3 draft 1 Sep. Milestone 4 changed 25 Sep.',DB+'SylvaNaut/10.%20Project%20management/2.2.1.%20Deliverables/Milestones'],
-  ['Scope','g','North Queensland first. Three species. Model mid-2027.'],
-  ['Data','g','FPC data licence signed 4 Sep 2026.',DB+'SylvaNaut/3.%20Data']]},
+  ['Contract & payments','n','"Sorting out SylvaNaut contract variations and payments." — WhatsApp, 25 Sep 18:56']]},
  {id:'aba',n:'Abacus',full:'The Abacus',sub:'Task manager',cls:'big',k:'abacus',t:[
-  ['Folder count','g','Spreadsheet counts 2,217 Dropbox folders, 11 levels deep. Built 3 Aug 2026.',CRUNCH],
-  ['Ranking','p','Next step: rank what matters and push it up to this dashboard. Not built.'],
-  ['Untagged folders','p','325 folders have no company tag.',CRUNCH],
-  ['Never opened','a','932 end folders never opened. Last six checks found nothing new.',CRUNCH],
-  ['Email screening','p','Five time buckets: do now, 2–3 days, fortnight, 2 months, 3–12 months. Designed, not built.'],
-  ['Access','r','Library, TFT and Sara Transfer folders have no member list.'],
-  ['Mac backup','p','Never mapped.'],
-  ['DK Personal','g','Excluded. Never opened.']]},
+  ['TFT email account','p','Set up tft@killin.com.au for Claude, change the password, start using that email. — WhatsApp, 26 Sep 01:35'],
+  ['TFT password','p','"You MUST change TFT PW because my subcontractors currently access that email." — WhatsApp, 26 Sep 08:23'],
+  ['Invoice sender','p','"Can you please use accounts@killin.com.au for sending invoices instead of my email." — WhatsApp, 22 Sep 21:44'],
+  ['Critical Issues Pad','n','A place for staff to post critical/urgent issues, in plain WWWWWH language, wired to the Claude Command Centre. — WhatsApp, 25 Sep 19:11'],
+  ['WWWWWH consistency','p','"I am having great difficulty getting Sara & Sigyel to present info/updates to me in the same WWWWWH way." — WhatsApp, 25 Sep 20:29']]},
  {id:'lib',n:'Library',full:'KillinIT Library',sub:'Technical & historical',cls:'low',k:'shelf',t:[
-  ['Papers sorted','g','499 papers named and sorted.',CRUNCH],
-  ['To scan','p','55 papers have no digital copy. List already made.',CRUNCH],
-  ['G26','p','One ID, two titles, one file. You pick the right title.'],
-  ['Separate room','p','Your words. Meaning not yet given.'],
-  ['Sealed','r','Kept off the web. One AI reader pointed inward. Not built.']]}
+  ['Not raised','n','Nothing about the Library came up in WhatsApp in this period.']]}
 ];
 const RULE={u:'r',i:'p',c:'c'};
 const tagged=k=>B.flatMap(b=>b.t.filter(t=>t[1]===RULE[k]).map(t=>({b,t})));
@@ -161,7 +150,7 @@ function sym(b){const ts=b.t;
  if(b.k==='abacus'){const rows=ts.slice(0,5);let s='<svg viewBox="0 0 240 120" preserveAspectRatio="xMidYMid meet"><rect x="6" y="4" width="228" height="112" rx="8" fill="none" stroke="#90caff" stroke-width="3"/>';
    rows.forEach((t,r)=>{const y=18+r*21;s+='<line x1="12" y1="'+y+'" x2="228" y2="'+y+'" stroke="#1e88e5" stroke-width="2"/>';const n=Math.round(H[t[1]]*8);for(let k=0;k<8;k++){const x=k<n?24+k*16:228-(8-k)*16+4;s+='<ellipse cx="'+x+'" cy="'+y+'" rx="7" ry="8" fill="'+(k<n?C[t[1]]:'#0a2240')+'" stroke="'+(k<n?'#fff':'#1e88e5')+'" stroke-width="1" style="'+(k<n?'filter:drop-shadow(0 0 4px '+C[t[1]]+')':'')+'"/>'}});
    return s+'</svg>'}
- if(b.k==='flux'){const pts=[[30,70],[80,30],[130,78],[180,34],[222,68]];let s='<svg viewBox="0 0 250 110" preserveAspectRatio="xMidYMid meet">';
+ if(b.k==='flux'){const n=ts.length,pts=[];for(let i=0;i<n;i++)pts.push([n>1?30+i*(192/(n-1)):125,i%2===0?68:30]);let s='<svg viewBox="0 0 250 110" preserveAspectRatio="xMidYMid meet">';
    s+='<path class="flow" d="M10 55 C 50 5, 90 105, 130 55 S 210 5, 245 55" stroke="#5fb3ff" stroke-width="2.5" fill="none" opacity=".7"/>';
    s+='<path class="flow" style="animation-duration:9s" d="M10 65 C 55 110, 95 10, 135 62 S 205 110, 245 62" stroke="#90caff" stroke-width="1.5" fill="none" opacity=".5"/>';
    for(let i=0;i<pts.length-1;i++)s+='<line class="flow" style="animation-duration:'+(5+i)+'s" x1="'+pts[i][0]+'" y1="'+pts[i][1]+'" x2="'+pts[i+1][0]+'" y2="'+pts[i+1][1]+'" stroke="'+C[ts[i+1][1]]+'" stroke-width="2.5"/>';
