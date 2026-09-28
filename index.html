@@ -125,12 +125,13 @@ const B=[
   ['Biochar','n','"Getting a biochar project funded." — WhatsApp, 25 Sep 18:56']]},
  {id:'syl',n:'SylvaNaut',full:'SylvaNaut',sub:'Project in flux',cls:'big',k:'flux',t:[
   ['Contract & payments','n','"Sorting out SylvaNaut contract variations and payments." — WhatsApp, 25 Sep 18:56']]},
- {id:'aba',n:'Abacus',full:'The Abacus',sub:'Task manager',cls:'big',k:'abacus',t:[
-  ['TFT email account','p','Set up tft@killin.com.au for Claude, change the password, start using that email. — WhatsApp, 26 Sep 01:35'],
-  ['TFT password','p','"You MUST change TFT PW because my subcontractors currently access that email." — WhatsApp, 26 Sep 08:23'],
-  ['Invoice sender','p','"Can you please use accounts@killin.com.au for sending invoices instead of my email." — WhatsApp, 22 Sep 21:44'],
-  ['Critical Issues Pad','n','A place for staff to post critical/urgent issues, in plain WWWWWH language, wired to the Claude Command Centre. — WhatsApp, 25 Sep 19:11'],
-  ['WWWWWH consistency','p','"I am having great difficulty getting Sara & Sigyel to present info/updates to me in the same WWWWWH way." — WhatsApp, 25 Sep 20:29']]},
+ {id:'aba',n:'Abacus',full:'The Abacus',sub:'6 Themes',cls:'big',k:'abacus',t:[
+  ['Compliance & Reporting','n','NCCS: send photos for ACI Code of Conduct Compliance FY26 application.<br>NCCS: submit ACI Code of Conduct Compliance FY26 application.<br>NCCS: review &amp; approve SMS.<br>KM: create SMS.<br>TFT: create SMS.'],
+  ['Budgeting & Finance','n','KM: send Sara access/invoices for tax declaration (Avenza, Microsoft, ReadAI, Claude, Uber, AirBNB, Aoya, RACQ, fuel card, Canva, GitHub, Xero, Hutdut, SafetyCulture, Australia Post).<br>KM: pay Pivotel account, give Sara access.<br>KM: review SafetyCulture Mitti billing change, confirm payment method before Sep.<br>TFT: invoice batch workflow — 5 more needed.<br>TFT: clear invoicing backlog.'],
+  ['Comms & Media','n','TFT: send Sara context on "The Most Successful Large-Scale Fire Management Program Nobody Has Heard Of" (CIEHF).<br>KM: review new project with Sara — Forestry Library.'],
+  ['NCCS SylvaNaut Project','n','SylvaNaut: grant-obligation tracker.<br>SylvaNaut: follow up Dermot Duncan on FPC data licence agreement review.',null,'syl'],
+  ['TFT Savanna Fire Ops','n','TFT: report batch workflow — 5 more needed.<br>TFT: decade-long fire-ops cost-benefit analysis.<br>TFT: ops task backlog (rake-hoes, leaf blowers), next-season prep.<br>TFT: contract Clinton.<br>TFT: contract Dan W.'],
+  ['Partnerships/BizDev/Growth','n','KM: register Daryl for the 7–9 Oct Symposium, member price.<br>KM: Zoho migration cancellation follow-up.']]},
  {id:'lib',n:'Library',full:'KillinIT Library',sub:'Technical & historical',cls:'low',k:'shelf',t:[
   ['Not raised','n','Nothing about the Library came up in WhatsApp in this period.']]}
 ];
@@ -147,7 +148,7 @@ function sym(b){const ts=b.t;
  if(b.k==='hbars')return '<div class="hbars">'+ts.map(t=>'<div class="hb"><i style="width:'+(H[t[1]]*100)+'%;background:'+C[t[1]]+';box-shadow:0 0 8px '+C[t[1]]+',0 0 16px '+C[t[1]]+'"></i></div>').join('')+'</div>';
  if(b.k==='bars')return '<div class="bars">'+ts.map(t=>'<i style="height:'+(H[t[1]]*100)+'%;background:'+C[t[1]]+';box-shadow:0 0 8px '+C[t[1]]+',0 0 16px '+C[t[1]]+'"></i>').join('')+'</div>';
  if(b.k==='shelf'){let s='';const hs=[.8,.65,.9,.7,.55,.85,.75,.6,.95,.7];ts.forEach((t,i)=>{for(let j=0;j<2;j++){const h=hs[(i*2+j)%hs.length];s+='<i style="height:'+(h*100)+'%;background:'+C[t[1]]+';box-shadow:0 0 6px '+C[t[1]]+'"></i>'}});return '<div class="shelf">'+s+'</div>'}
- if(b.k==='abacus'){const rows=ts.slice(0,5);let s='<svg viewBox="0 0 240 120" preserveAspectRatio="xMidYMid meet"><rect x="6" y="4" width="228" height="112" rx="8" fill="none" stroke="#90caff" stroke-width="3"/>';
+ if(b.k==='abacus'){const rows=ts.slice(0,6);let s='<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid meet"><rect x="6" y="4" width="228" height="132" rx="8" fill="none" stroke="#90caff" stroke-width="3"/>';
    rows.forEach((t,r)=>{const y=18+r*21;s+='<line x1="12" y1="'+y+'" x2="228" y2="'+y+'" stroke="#1e88e5" stroke-width="2"/>';const n=Math.round(H[t[1]]*8);for(let k=0;k<8;k++){const x=k<n?24+k*16:228-(8-k)*16+4;s+='<ellipse cx="'+x+'" cy="'+y+'" rx="7" ry="8" fill="'+(k<n?C[t[1]]:'#0a2240')+'" stroke="'+(k<n?'#fff':'#1e88e5')+'" stroke-width="1" style="'+(k<n?'filter:drop-shadow(0 0 4px '+C[t[1]]+')':'')+'"/>'}});
    return s+'</svg>'}
  if(b.k==='flux'){const n=ts.length,pts=[];for(let i=0;i<n;i++)pts.push([n>1?30+i*(192/(n-1)):125,i%2===0?68:30]);let s='<svg viewBox="0 0 250 110" preserveAspectRatio="xMidYMid meet">';
