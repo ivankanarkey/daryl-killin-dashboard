@@ -61,7 +61,10 @@ button{font:inherit;color:var(--ink);background:none;border:0;cursor:pointer}
 .dh h2{font-size:max(calc(5.2*var(--u)),22px);font-weight:900;color:var(--hd);text-shadow:0 0 12px rgba(30,136,229,.9)}
 #bBack{min-width:48px;min-height:48px;padding:0 calc(3*var(--u));border-radius:calc(1.4*var(--u));background:#ffe600;color:#000;border:calc(.5*var(--u)) solid #fff59d;box-shadow:0 0 10px #ffe600,0 0 24px #ffe600;font-size:max(calc(3.8*var(--u)),17px);font-weight:900}
 .areas{flex:1;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:calc(1.4*var(--u));min-height:0}
+.areas.stack{display:flex;flex-direction:column;overflow-y:auto;gap:calc(1.2*var(--u))}
 .area{border-radius:calc(2.2*var(--u));background:linear-gradient(180deg,#0b2d52,#061a33);border:calc(.6*var(--u)) solid var(--BL);box-shadow:0 0 calc(2*var(--u)) rgba(30,136,229,.5);display:flex;flex-direction:column;padding:calc(1.6*var(--u));gap:calc(1*var(--u));min-height:0;overflow:auto}
+.areas.stack .area{flex:none;width:100%;text-align:left;font:inherit;cursor:pointer}
+.area .cnt{font-size:max(calc(2.8*var(--u)),13px);color:var(--muted);font-weight:700}
 .area .an{font-size:max(calc(3.8*var(--u)),17px);font-weight:900;color:var(--hd);line-height:1.1}
 .area .st{font-size:max(calc(3.2*var(--u)),14px);font-weight:900;padding:calc(.5*var(--u)) calc(1*var(--u));border-radius:calc(.8*var(--u));align-self:flex-start;color:#020a14}
 .area .de{font-size:max(calc(3.2*var(--u)),15px);line-height:1.35;color:#e8eeec}
@@ -126,12 +129,12 @@ const B=[
  {id:'syl',n:'SylvaNaut',full:'SylvaNaut',sub:'Project in flux',cls:'big',k:'flux',t:[
   ['Contract & payments','n','"Sorting out SylvaNaut contract variations and payments." — WhatsApp, 25 Sep 18:56']]},
  {id:'aba',n:'Abacus',full:'The Abacus',sub:'6 Themes',cls:'big',k:'abacus',t:[
-  ['Compliance & Reporting','n','NCCS: send photos for ACI Code of Conduct Compliance FY26 application.<br>NCCS: submit ACI Code of Conduct Compliance FY26 application.<br>NCCS: review &amp; approve SMS.<br>KM: create SMS.<br>TFT: create SMS.'],
-  ['Budgeting & Finance','n','KM: send Sara access/invoices for tax declaration (Avenza, Microsoft, ReadAI, Claude, Uber, AirBNB, Aoya, RACQ, fuel card, Canva, GitHub, Xero, Hutdut, SafetyCulture, Australia Post).<br>KM: pay Pivotel account, give Sara access.<br>KM: review SafetyCulture Mitti billing change, confirm payment method before Sep.<br>TFT: invoice batch workflow — 5 more needed.<br>TFT: clear invoicing backlog.'],
-  ['Comms & Media','n','TFT: send Sara context on "The Most Successful Large-Scale Fire Management Program Nobody Has Heard Of" (CIEHF).<br>KM: review new project with Sara — Forestry Library.'],
-  ['NCCS SylvaNaut Project','n','SylvaNaut: grant-obligation tracker.<br>SylvaNaut: follow up Dermot Duncan on FPC data licence agreement review.',null,'syl'],
-  ['TFT Savanna Fire Ops','n','TFT: report batch workflow — 5 more needed.<br>TFT: decade-long fire-ops cost-benefit analysis.<br>TFT: ops task backlog (rake-hoes, leaf blowers), next-season prep.<br>TFT: contract Clinton.<br>TFT: contract Dan W.'],
-  ['Partnerships/BizDev/Growth','n','KM: register Daryl for the 7–9 Oct Symposium, member price.<br>KM: Zoho migration cancellation follow-up.']]},
+  ['Compliance & Reporting','n'],
+  ['Budgeting & Finance','n'],
+  ['Comms & Media','n'],
+  ['NCCS SylvaNaut Project','n'],
+  ['TFT Savanna Fire Ops','n'],
+  ['Partnerships/BizDev/Growth','n']]},
  {id:'lib',n:'Library',full:'KillinIT Library',sub:'Technical & historical',cls:'low',k:'shelf',t:[
   ['Not raised','n','Nothing about the Library came up in WhatsApp in this period.']]}
 ];
@@ -174,11 +177,55 @@ document.getElementById('wheel').innerHTML='<svg viewBox="0 0 100 100" width="10
 document.getElementById('tl').onclick=()=>{sel=(sel+B.length-1)%B.length;draw()};
 document.getElementById('tr').onclick=()=>{sel=(sel+1)%B.length;draw()};
 document.getElementById('wheel').onclick=()=>drill(B[sel]);
-function card(t,body){return '<div class="area"><div class="an">'+(body?body+': ':'')+t[0]+'</div><div class="st" style="background:'+C[t[1]]+';box-shadow:0 0 10px '+C[t[1]]+',0 0 22px '+C[t[1]]+'">'+W[t[1]]+'</div><div class="de">'+t[2]+'</div>'+(t[3]?'<a href="'+t[3]+'" target="_blank" rel="noopener">Dropbox</a>':'')+(t[4]?'<button class="go" data-go="'+t[4]+'">Go in</button>':'')+'</div>'}
+function card(t,body){return '<div class="area"><div class="an">'+(body?body+': ':'')+t[0]+'</div><div class="st" style="background:'+C[t[1]]+';box-shadow:0 0 10px '+C[t[1]]+',0 0 22px '+C[t[1]]+'">'+W[t[1]]+'</div>'+(t[2]?'<div class="de">'+t[2]+'</div>':'')+(t[3]?'<a href="'+t[3]+'" target="_blank" rel="noopener">Dropbox</a>':'')+(t[4]?'<button class="go" data-go="'+t[4]+'">Go in</button>':'')+'</div>'}
 function bindGo(){document.querySelectorAll('[data-go]').forEach(g=>g.onclick=()=>{sel=B.findIndex(x=>x.id===g.dataset.go);draw();drill(B[sel])})}
-function drill(b){document.getElementById('dname').textContent=b.full;
+
+const THEMES=[
+ {name:'Compliance & Reporting',tasks:[
+  ['NCCS: ACI Code of Conduct — send photos','n'],
+  ['NCCS: ACI Code of Conduct — submit application','n'],
+  ['NCCS: review & approve SMS','n'],
+  ['KM: create SMS','n'],
+  ['TFT: create SMS','n']]},
+ {name:'Budgeting & Finance',tasks:[
+  ['KM: tax declaration — send access/invoices','n'],
+  ['KM: pay Pivotel, give Sara access','n'],
+  ['KM: SafetyCulture Mitti billing — confirm payment method','n'],
+  ['TFT: invoice batch — 5 more needed','n'],
+  ['TFT: clear invoicing backlog','n']]},
+ {name:'Comms & Media',tasks:[
+  ['TFT: CIEHF fire program context for Sara','n'],
+  ['KM: Forestry Library — review new project','n']]},
+ {name:'NCCS SylvaNaut Project',tasks:[
+  ['Grant-obligation tracker','n'],
+  ['Follow up Dermot Duncan — FPC data licence','n']]},
+ {name:'TFT Savanna Fire Ops',tasks:[
+  ['Report batch — 5 more needed','n'],
+  ['Decade-long fire-ops cost-benefit analysis','n'],
+  ['Ops task backlog (rake-hoes, leaf blowers)','n'],
+  ['Contract Clinton','n'],
+  ['Contract Dan W','n']]},
+ {name:'Partnerships/BizDev/Growth',tasks:[
+  ['Register Daryl — 7–9 Oct Symposium','n'],
+  ['Zoho migration cancellation follow-up','n']]}
+];
+function drillAba(){document.getElementById('dname').textContent='The Abacus · 6 Themes';
+ const ar=document.getElementById('areas');ar.classList.add('stack');
+ ar.innerHTML=THEMES.map((th,i)=>'<button class="area" data-theme="'+i+'"><div class="an">'+th.name+'</div><div class="st" style="background:'+C.n+';box-shadow:0 0 10px '+C.n+'">'+W.n+'</div><div class="cnt">'+th.tasks.length+' tasks</div></button>').join('');
+ document.querySelectorAll('[data-theme]').forEach(el=>el.onclick=()=>drillTheme(+el.dataset.theme));
+ document.getElementById('bBack').onclick=()=>document.getElementById('drill').classList.remove('show');
+ document.getElementById('drill').classList.add('show')}
+function drillTheme(i){const th=THEMES[i];document.getElementById('dname').textContent=th.name;
+ const ar=document.getElementById('areas');ar.classList.add('stack');
+ ar.innerHTML=th.tasks.map(t=>card(t)).join('');
+ document.getElementById('bBack').onclick=drillAba;
+ document.getElementById('drill').classList.add('show')}
+function drill(b){document.getElementById('areas').classList.remove('stack');
+ if(b.id==='aba'){drillAba();return}
+ document.getElementById('dname').textContent=b.full;
  document.getElementById('areas').innerHTML=b.t.map(t=>card(t)).join('')+(b.files?'<div class="area files"><div class="an">Company files</div><div class="de">This company\'s Dropbox folders. Read only.</div><a href="'+b.files+'" target="_blank" rel="noopener">Open in Dropbox</a></div>':'');
- bindGo();document.getElementById('drill').classList.add('show')}
+ bindGo();document.getElementById('bBack').onclick=()=>document.getElementById('drill').classList.remove('show');
+ document.getElementById('drill').classList.add('show')}
 function showTag(k){const L=tagged(k);document.getElementById('dname').textContent=k==='u'?'Urgent':k==='i'?'Important':'COMPLETED';
  document.getElementById('areas').innerHTML=L.length?L.map(x=>card(x.t,x.b.n)).join(''):(k==='c'?'<div class="area"><div class="an">The completed task</div><div class="de">The new measure: work finished, not work started. Counting starts once the Abacus ranks tasks.</div></div>':'<div class="area"><div class="an">Nothing set yet</div><div class="de">The rule for what goes here comes later.</div></div>');
  bindGo();document.getElementById('drill').classList.add('show')}
